@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "period": "2025 – Present",
+    "title": "AI Research Intern",
+    "organization": "OIST, Japan",
+    "description": "GNN ecological modeling · multi-LLM pipelines",
+    "tag": "Research",
+    "type": "research"
+  },
+  {
+    "id": "2",
+    "period": "2024 – 2025",
+    "title": "Associate Product Manager — AI Systems",
+    "organization": "Drivio Technologies",
+    "description": "LLM-driven loan underwriting · NL-to-SQL BI system\nClaude API · FastAPI · Playwright",
+    "tag": "Industry",
+    "type": "industry"
+  },
+  {
+    "id": "3",
+    "period": "2023",
+    "title": "Business Consultant & Analyst",
+    "organization": "Analy Assist",
+    "description": "4 startup launches · cost analysis · market strategy",
+    "tag": "Industry",
+    "type": "industry"
+  },
+  {
+    "id": "4",
+    "period": "2025 – 2027",
+    "title": "M.Sc. Financial Engineering",
+    "organization": "WorldQuant University",
+    "description": "",
+    "tag": "Education",
+    "type": "education"
+  },
+  {
+    "id": "5",
+    "period": "2022 – 2025",
+    "title": "B.Sc. Data Analytics",
+    "organization": "DSEU",
+    "description": "GPA 3.82 · Rank 2",
+    "tag": "Education",
+    "type": "education"
+  }
+]

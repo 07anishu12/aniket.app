@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #0A0A0A;
+  --color-surface: #111111;
+  --color-border-subtle: rgba(255,255,255,0.07);
+  --color-divider: rgba(255,255,255,0.05);
+
+  --color-text-primary: #F2EFE8;
+  --color-text-body: #9E9B95;
+  --color-text-muted: #5C5A55;
+
+  --color-accent-amber: #E8960C;
+  --color-accent-blue: #7EB8C9;
+  --color-accent-green: #7EC99A;
+
+  --font-dm-serif: var(--font-dm-serif);
+  --font-source-serif: var(--font-source-serif);
+  --font-jetbrains: var(--font-jetbrains);
+}
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #9E9B95;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-source-serif), serif;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-dm-serif), serif;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Base styles for mdx content */
+.prose-custom {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.prose-custom p {
+  margin-bottom: 1.5em;
+}
+.prose-custom h2 {
+  font-size: 2rem;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  transition: all 0.3s;
+}
+.prose-custom h2:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent-amber);
+}
+.prose-custom h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+.prose-custom a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.prose-custom a:hover {
+  text-decoration: underline;
+}
+.prose-custom blockquote {
+  border-left: 4px solid var(--color-accent-amber);
+  padding-left: 1.5em;
+  font-style: italic;
+  color: var(--color-text-primary);
+  background: rgba(255,255,255,0.02);
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.prose-custom code:not(pre code) {
+  background: rgba(232, 150, 12, 0.1); /* amber tint */
+  color: var(--color-accent-amber);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+.prose-custom pre {
+  background: #0D0D0D;
+  border: 1px solid var(--color-border-subtle);
+  padding: 1.5em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.5em;
+}
+.prose-custom pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  text-transform: none; /* override the global code style for code blocks */
+  font-size: 0.85rem;
+  letter-spacing: normal;
+}
+

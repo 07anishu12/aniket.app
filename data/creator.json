@@ -1,0 +1,50 @@
+{
+  "niche": {
+    "title": "My Niche",
+    "description": "AI & ML for the Indian tech audience. I translate research papers, tools, and industry trends into posts that builders actually read."
+  },
+  "pillars": [
+    {
+      "icon": "🔬",
+      "title": "Research Translated",
+      "description": "Making papers readable"
+    },
+    {
+      "icon": "🛠",
+      "title": "Builder's Log",
+      "description": "What I'm shipping, why, how"
+    },
+    {
+      "icon": "📊",
+      "title": "AI in Indian Fintech",
+      "description": "LLMs in lending, credit, UPI"
+    },
+    {
+      "icon": "🧵",
+      "title": "Career & Learning",
+      "description": "PhD prep, research, dev skills"
+    }
+  ],
+  "services": [
+    {
+      "title": "LinkedIn Content Strategy",
+      "description": "Profile audit, content calendar, ghostwriting",
+      "tag": "Social"
+    },
+    {
+      "title": "Twitter/X Thread Writing",
+      "description": "Technical threads, AI news commentary, viral hooks",
+      "tag": "Social"
+    },
+    {
+      "title": "Technical Blog Writing",
+      "description": "Long-form explainers, research summaries, posts",
+      "tag": "Content"
+    },
+    {
+      "title": "AI Brand Consulting",
+      "description": "For AI startups needing a technical content voice",
+      "tag": "Consulting"
+    }
+  ]
+}

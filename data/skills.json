@@ -1,0 +1,5 @@
+{
+  "ml_ai": ["PyTorch", "TF", "Scikit-learn", "GAT/GCN", "Transformers", "QLoRA", "RAG", "LLM Eval"],
+  "systems": ["Python", "FastAPI", "Node.js", "SQL", "MongoDB", "REST APIs", "Docker", "Git"],
+  "research": ["Ablation Studies", "Benchmarking", "Experiment Tracking", "Stats", "Feature Engineering"]
+}

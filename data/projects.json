@@ -1,0 +1,35 @@
+[
+  {
+    "id": "hatt",
+    "name": "HATT — Heterophily-Aware Temporal Transformer",
+    "description": "Temporal graph transformer adapted for heterophilic node classification. Modified self-attention to weight dissimilar neighbor representations. Benchmarked against GAT, GCN, H2GCN on Cornell, Texas, Wisconsin datasets with full ablation studies.",
+    "tags": ["Python", "PyTorch", "Graph ML", "Research"],
+    "github": null,
+    "private": true,
+    "featured": true,
+    "category": "Research",
+    "articleSlug": "hatt-heterophily-transformers"
+  },
+  {
+    "id": "bi-system",
+    "name": "Prompt-based Business Intelligence System",
+    "description": "NL-to-SQL intelligence layer using Claude API across heterogeneous enterprise data sources. Schema-grounding, cross-source query orchestration, prompt evaluation loops for injection resistance.",
+    "tags": ["TypeScript", "FastAPI", "Claude API", "LLM Systems"],
+    "github": "https://github.com/07anishu12/Prompt-based-Business-Intelligence-System",
+    "private": false,
+    "featured": true,
+    "category": "LLM Systems",
+    "articleSlug": "nl-to-sql-production-lessons"
+  },
+  {
+    "id": "fitness-tracker",
+    "name": "Wearable Activity Recognition Pipeline",
+    "description": "ML pipeline over raw gyroscope/accelerometer data from fitness wearables. Feature extraction, SVM/LSTM/CNN benchmarks, evaluation under noisy/missing-sensor conditions. 94% accuracy on 6-class activity recognition.",
+    "tags": ["Python", "Scikit-learn", "PyTorch", "Sensor ML"],
+    "github": "https://github.com/07anishu12/Fitness-tracker-",
+    "private": false,
+    "featured": true,
+    "category": "ML",
+    "articleSlug": null
+  }
+]
