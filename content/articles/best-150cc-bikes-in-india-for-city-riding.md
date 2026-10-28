@@ -20,7 +20,11 @@ coverImageAlt: Illustrative guide to Best 150cc Bikes in India for City Riding
 imageCaption: >-
   Editorial buying guide and specification analysis for Best 150cc Bikes in
   India for City Riding.
-faqItems: []
+faqItems:
+  - question: Which variant is best in Best 150cc Bikes in India for City Riding?
+    answer: Always choose the front disc or Single/Dual-Channel ABS trim (e.g., on Yamaha FZS-FI V4 / FZ-S Fi Hybrid or TVS Apache RTR 160 4V (USD & Dual-Channel ABS)) to prevent wheel lockup on wet roads.
+  - question: Are festive discounts guaranteed?
+    answer: Only rely on written manufacturer exchange or cashback offers verified on your dealer invoice.
 draft: false
 featured: false
 ---

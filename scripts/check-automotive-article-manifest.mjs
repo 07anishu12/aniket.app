@@ -38,7 +38,7 @@ for (const legacy of legacyRecords) {
   const filename = path.join(root, 'content/articles', `${legacy.slug}.md`)
   if (legacy.migrationStatus !== 'preserved-legacy-route' || !fs.existsSync(filename)) throw new Error(`Missing preserved legacy article: ${legacy.slug}`)
   const { data } = matter(fs.readFileSync(filename, 'utf8'))
-  if (data.date !== legacy.publicationDate || data.draft !== false || data.category !== 'Automotive') throw new Error(`Invalid preserved legacy metadata: ${legacy.slug}`)
+  if (data.date !== legacy.publicationDate || data.draft !== false || data.category !== 'Automotive' || !Array.isArray(data.faqItems) || data.faqItems.length !== 2) throw new Error(`Invalid preserved legacy metadata: ${legacy.slug}`)
   slugs.add(legacy.slug)
 }
 if (targetArticleFiles.length !== oldCount + records.length + legacyRecords.length) throw new Error(`Expected ${oldCount + records.length + legacyRecords.length} articles, found ${targetArticleFiles.length}.`)
