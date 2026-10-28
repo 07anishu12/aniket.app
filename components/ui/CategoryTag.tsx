@@ -13,6 +13,8 @@ export function getCategoryColor(category: string): string {
       return 'text-[var(--color-accent-blue)]'
     case 'Biking':
       return 'text-[var(--color-accent-green)]'
+    case 'Automotive':
+      return 'text-[var(--color-accent-green)]'
     case 'Papers':
     default:
       return 'text-[var(--color-accent-amber)]'

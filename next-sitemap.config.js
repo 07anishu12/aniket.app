@@ -4,4 +4,5 @@ module.exports = {
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
+  exclude: ['/blog', '/blog/auto/*'],
 }

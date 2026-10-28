@@ -1,4 +1,4 @@
-import { getArticleBySlug } from '@/lib/articles'
+import { getAllArticles, getArticleBySlug } from '@/lib/articles'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -19,25 +19,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const article = getArticleBySlug(resolvedParams.slug)
   if (!article) return {}
 
+  const canonical = `https://aniket.app/articles/${resolvedParams.slug}`
+  const pageTitle = article.seoTitle || `${article.title} — aniket.app`
   return {
-    title: `${article.title} — aniket.app`,
+    title: pageTitle,
     description: article.description,
+    keywords: article.seoKeywords,
+    alternates: { canonical },
     openGraph: {
-      title: article.title,
+      title: pageTitle,
       description: article.description,
-      url: `https://aniket.app/articles/${resolvedParams.slug}`,
+      url: canonical,
       type: 'article',
       publishedTime: article.date,
-      authors: ['Aniket'],
+      authors: [article.author],
       tags: article.tags,
-      images: article.coverImage ? [article.coverImage] : [],
+      images: article.coverImage ? [{ url: article.coverImage, alt: article.coverImageAlt || article.title }] : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
+      images: article.coverImage ? [article.coverImage] : [],
     }
   }
+}
+
+export function generateStaticParams() {
+  return getAllArticles().map(({ slug }) => ({ slug }))
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -61,20 +70,27 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     headline: article.title,
     description: article.description,
     datePublished: article.date,
-    author: {
-      '@type': 'Person',
-      name: 'Aniket',
-      url: 'https://aniket.app/portfolio'
-    },
-    publisher: { '@type': 'Person', name: 'Aniket' }
+    mainEntityOfPage: `https://aniket.app/articles/${article.slug}`,
+    image: article.coverImage ? [`https://aniket.app${article.coverImage}`] : undefined,
+    author: { '@type': 'Person', name: article.author },
+    publisher: { '@type': 'Person', name: article.author }
   }
+  const faqJsonLd = article.faqItems.length ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: article.faqItems.map(({ question, answer }) => ({
+      '@type': 'Question', name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
+    })),
+  } : null
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }} />}
       <ReadingProgress />
 
       <article className="container mx-auto px-4 md:px-8 max-w-4xl py-12 md:py-20">
@@ -107,15 +123,17 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {article.coverImage ? (
             <Image
               src={article.coverImage}
-              alt={article.title}
+              alt={article.coverImageAlt || article.title}
               fill
               className="object-cover"
               priority
+              unoptimized={article.coverImage.endsWith('.svg')}
             />
           ) : (
             <GradientFallback category={article.category} />
           )}
         </div>
+        {article.coverImage && article.imageCaption && <p className="text-sm text-[var(--color-text-muted)] text-center -mt-12 mb-12">{article.imageCaption}</p>}
 
         <div className="prose-custom">
           <MDXRemote 

@@ -1,9 +1,8 @@
 import React from 'react'
-import { getAllArticles } from '@/lib/articles'
+import { getAllArticles, getAllCategories } from '@/lib/articles'
 import ArticleCard from '@/components/articles/ArticleCard'
-import FilterBar from '@/components/ui/FilterBar'
 
-const categories = ["All", "AI Research", "AI Systems", "Biking", "Papers"];
+const preferredCategories = ["AI Research", "AI Systems", "Automotive", "Biking", "Papers"]
 
 export default async function ArticlesPage({
   searchParams,
@@ -14,6 +13,7 @@ export default async function ArticlesPage({
   const activeCategory = resolvedParams.category || "All";
   
   const allArticles = getAllArticles()
+  const categories = ["All", ...preferredCategories.filter((category) => getAllCategories().includes(category)), ...getAllCategories().filter((category) => !preferredCategories.includes(category)).sort()]
   const articles = activeCategory === "All" 
     ? allArticles 
     : allArticles.filter(a => a.category === activeCategory)
@@ -26,7 +26,7 @@ export default async function ArticlesPage({
         </h1>
         <div className="w-full max-w-2xl h-[1px] bg-[var(--color-divider)] mb-6" />
         <p className="text-xl md:text-2xl text-[var(--color-text-body)] font-source-serif leading-relaxed max-w-3xl mb-12">
-          {allArticles.length} articles across AI, systems, and the road.
+          {allArticles.length} articles across AI, systems, automotive, and the road.
         </p>
 
         {/* Client-side filter navigation is tricky without state, so we use links styled as buttons */}
