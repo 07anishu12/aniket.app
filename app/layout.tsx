@@ -24,6 +24,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aniket.app"),
   title: "Aniket — AI, Systems, and Stories from the Road",
   description:
     "Writing about artificial intelligence, real-world systems, and motorcycle journeys across India. By Aniket — AI Researcher & Builder, New Delhi.",
